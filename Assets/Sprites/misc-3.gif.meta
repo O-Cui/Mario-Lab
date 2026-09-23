@@ -299,28 +299,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground Brown
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 893
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 804a9360fa2d1ffb0800000000000000
-      internalID: -4615676493912497144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Brick
       rect:
         serializedVersion: 2
@@ -386,50 +364,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Pipe Head
-      rect:
-        serializedVersion: 2
-        x: 614
-        y: 1174
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 702ee71bb1d4904b0800000000000000
-      internalID: -5473759090754788857
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pipe Body
-      rect:
-        serializedVersion: 2
-        x: 614
-        y: 1137
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e963eef5c5f37abb0800000000000000
-      internalID: -4924898001527359842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -452,10 +386,7 @@ TextureImporter:
       Big Hill: -6645138749401106942
       Brick: -6448832585698385253
       Coin: 8765955682749052824
-      Ground Brown: -4615676493912497144
       Magic Mushroom: 4969965420812678437
-      Pipe Body: -4924898001527359842
-      Pipe Head: -5473759090754788857
       Question Block: 5761694991206918996
       Small Hill: 444760502937241846
   mipmapLimitGroupName: 

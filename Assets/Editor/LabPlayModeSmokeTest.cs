@@ -96,6 +96,8 @@ public static class LabPlayModeSmokeTest
         Require(restartButton.GetComponent<Button>().navigation.mode == Navigation.Mode.None, "Restart button navigation must be None.");
         Require(mario.transform.position.y > -3.1f, "Mario fell through the ground.");
         Require(Vector2.Distance(initialGoombaPosition, goombaBody.position) > 0.01f, "Goomba patrol did not move.");
+        Require(Mathf.Abs(goomba.GetComponent<EnemyMovement>().startPosition.y - (-2.5625f)) < 0.001f,
+            "Goomba is not vertically aligned with the ground.");
 
         Require(Mathf.Approximately(movement.speed, 10f), "Mario speed must match the lab value of 10.");
         Require(Mathf.Approximately(movement.maxSpeed, 20f), "Mario maxSpeed must match the lab value of 20.");

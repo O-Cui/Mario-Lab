@@ -71,7 +71,9 @@ public static class LabSceneBuilder
 
         GameObject mario = CreateMario(marioSprite, noFriction);
         GameObject enemies = new GameObject("Enemies");
-        GameObject goomba = CreateGoomba("Goomba", goombaSprite, new Vector2(4.5f, -2.48f), enemies.transform);
+        // The Goomba source slice has one transparent pixel below its feet.
+        // Lower its pivot by 1/16 unit so the visible sprite rests on the ground.
+        GameObject goomba = CreateGoomba("Goomba", goombaSprite, new Vector2(4.5f, -2.5625f), enemies.transform);
         CreateUserInterface(mario, enemies, goomba, uiFont, buttonSprite);
 
         CameraFollow follow = camera.gameObject.AddComponent<CameraFollow>();
