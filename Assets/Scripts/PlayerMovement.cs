@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 10f;
-    public float maxSpeed = 20f;
-    public float upSpeed = 10f;
+    public float speed = 30f;
+    public float maxSpeed = 6.5f;
+    public float upSpeed = 9.5f;
 
     public TextMeshProUGUI scoreText;
     public GameObject enemies;
