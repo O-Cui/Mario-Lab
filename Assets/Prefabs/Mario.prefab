@@ -187,6 +187,7 @@ MonoBehaviour:
   enemies: {fileID: 0}
   jumpOverGoomba: {fileID: 2207077061706583192}
   gameOverPanel: {fileID: 0}
+  gameOverScoreText: {fileID: 0}
 --- !u!114 &2207077061706583192
 MonoBehaviour:
   m_ObjectHideFlags: 0

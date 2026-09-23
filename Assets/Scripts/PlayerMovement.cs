@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject enemies;
     public JumpOverGoomba jumpOverGoomba;
     public GameObject gameOverPanel;
+    public TextMeshProUGUI gameOverScoreText;
 
     private Rigidbody2D marioBody;
     private SpriteRenderer marioSprite;
@@ -88,13 +89,10 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log("Collided with goomba!");
         marioBody.linearVelocity = Vector2.zero;
-        TextMeshProUGUI gameOverText = gameOverPanel != null
-            ? gameOverPanel.GetComponentInChildren<TextMeshProUGUI>(true)
-            : null;
-        if (gameOverText != null)
+        if (gameOverScoreText != null)
         {
             int finalScore = jumpOverGoomba != null ? jumpOverGoomba.score : 0;
-            gameOverText.text = "GAME OVER\nScore: " + finalScore + "\nPRESS RESTART";
+            gameOverScoreText.text = "FINAL SCORE\n" + finalScore.ToString("D6");
         }
         if (gameOverPanel != null)
         {
@@ -151,6 +149,11 @@ public class PlayerMovement : MonoBehaviour
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(false);
+        }
+
+        if (gameOverScoreText != null)
+        {
+            gameOverScoreText.text = "FINAL SCORE\n000000";
         }
     }
 
