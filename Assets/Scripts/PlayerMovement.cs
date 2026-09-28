@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public JumpOverGoomba jumpOverGoomba;
     public GameObject gameOverPanel;
     public TextMeshProUGUI gameOverScoreText;
+    public Transform gameCamera;
 
     // Animation and audio components configured on Mario.
     public Animator marioAnimator;
@@ -185,6 +186,8 @@ public class PlayerMovement : MonoBehaviour
         {
             gameOverScoreText.text = "FINAL SCORE\n000000";
         }
+
+        gameCamera.position = new Vector3(0f, 0f, -10f);
     }
 
     private void StopHorizontalMovement()
