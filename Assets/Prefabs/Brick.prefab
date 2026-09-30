@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3554634894726477671}
   - component: {fileID: 4061734125148021996}
   - component: {fileID: 2308767228430361318}
-  - component: {fileID: 4947176214355583818}
   m_Layer: 7
   m_Name: Brick
   m_TagString: Untagged
@@ -139,15 +138,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4947176214355583818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610604685322904215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8649e0025fd86430dbb73855c4e4fa67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BreakableBrick

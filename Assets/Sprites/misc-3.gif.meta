@@ -369,7 +369,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 373
-        y: 1172
+        y: 1171
         width: 16
         height: 16
       alignment: 0
@@ -390,8 +390,8 @@ TextureImporter:
       name: moving_platform_6
       rect:
         serializedVersion: 2
-        x: 142
-        y: 1197
+        x: 143
+        y: 1201
         width: 48
         height: 8
       alignment: 0
@@ -413,9 +413,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 614
-        y: 1189
+        y: 1191
         width: 32
-        height: 16
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,10 +434,10 @@ TextureImporter:
       name: Green Pipe Body
       rect:
         serializedVersion: 2
-        x: 620
-        y: 1156
-        width: 20
-        height: 32
+        x: 616
+        y: 1174
+        width: 28
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -240,7 +240,7 @@ public class PlayerMovement : MonoBehaviour
             gameOverScoreText.text = "FINAL SCORE\n000000";
         }
 
-        gameCamera.position = new Vector3(0f, 0f, -10f);
+        gameCamera.position = new Vector3(0f, 1f, -10f);
     }
 
     private void StopHorizontalMovement()
