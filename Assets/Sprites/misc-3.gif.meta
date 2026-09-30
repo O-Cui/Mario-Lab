@@ -364,6 +364,94 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Brown Empty Question Box
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 1172
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a37f637426048fd836e2f6005eff33
+      internalID: -262952986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving_platform_6
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 1197
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09da3eeac62834c9bb73ff35eda67f51
+      internalID: 597109013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green Pipe Head
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 1189
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13249b8eac48c4f389bacd7cf73a36b3
+      internalID: 42565448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green Pipe Body
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1156
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb685cf61b6694156a65cd3dca328f7a
+      internalID: 524966076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -385,10 +473,14 @@ TextureImporter:
       3 Shrubs: -5775066228853674540
       Big Hill: -6645138749401106942
       Brick: -6448832585698385253
+      Brown Empty Question Box: -262952986
       Coin: 8765955682749052824
+      Green Pipe Body: 524966076
+      Green Pipe Head: 42565448
       Magic Mushroom: 4969965420812678437
       Question Block: 5761694991206918996
       Small Hill: 444760502937241846
+      moving_platform_6: 597109013
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

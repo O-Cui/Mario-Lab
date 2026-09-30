@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 30f;
     public float maxSpeed = 6.5f;
-    public float upSpeed = 9.5f;
+    public float upSpeed = 19f;
 
     public TextMeshProUGUI scoreText;
     public GameObject enemies;
@@ -30,7 +31,10 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer marioSprite;
     private bool faceRightState = true;
     private bool onGroundState = true;
+    private bool jumpSoundPending;
     private Vector3 startPosition;
+    private int collisionLayerMask = (1 << 3) | (1 << 6) | (1 << 7);
+    private readonly HashSet<Collider2D> supportingColliders = new HashSet<Collider2D>();
 
     public bool IsGrounded => onGroundState;
 
@@ -99,19 +103,66 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown("space") && onGroundState)
         {
+            jumpSoundPending = true;
             marioBody.AddForce(Vector2.up * upSpeed, ForceMode2D.Impulse);
-            onGroundState = false;
-            marioAnimator.SetBool("onGround", onGroundState);
+            supportingColliders.Clear();
+            SetGrounded(false);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        if (collision.gameObject.CompareTag("Ground") && !onGroundState)
+        UpdateSupportingCollision(col);
+    }
+
+    private void OnCollisionStay2D(Collision2D col)
+    {
+        UpdateSupportingCollision(col);
+    }
+
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        supportingColliders.Remove(col.collider);
+        SetGrounded(supportingColliders.Count > 0);
+    }
+
+    private void UpdateSupportingCollision(Collision2D col)
+    {
+        if ((collisionLayerMask & (1 << col.gameObject.layer)) == 0)
         {
-            onGroundState = true;
-            marioAnimator.SetBool("onGround", onGroundState);
+            return;
         }
+
+        bool standingOnTop = false;
+        if (marioBody.linearVelocity.y <= 0.1f)
+        {
+            for (int index = 0; index < col.contactCount; index++)
+            {
+                ContactPoint2D contact = col.GetContact(index);
+                if (contact.normal.y > 0.5f && transform.position.y > contact.point.y + 0.1f)
+                {
+                    standingOnTop = true;
+                    break;
+                }
+            }
+        }
+
+        if (standingOnTop && col.contactCount > 0)
+        {
+            supportingColliders.Add(col.collider);
+        }
+        else
+        {
+            supportingColliders.Remove(col.collider);
+        }
+
+        SetGrounded(supportingColliders.Count > 0);
+    }
+
+    private void SetGrounded(bool grounded)
+    {
+        onGroundState = grounded;
+        marioAnimator.SetBool("onGround", onGroundState);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -122,6 +173,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Debug.Log("Collided with goomba!");
+        jumpSoundPending = false;
         marioAnimator.Play("mario-die", 0, 0f);
         marioAudio.PlayOneShot(marioDeath);
         alive = false;
@@ -146,8 +198,9 @@ public class PlayerMovement : MonoBehaviour
         marioBody.angularVelocity = 0f;
         faceRightState = true;
         marioSprite.flipX = false;
-        onGroundState = true;
-        marioAnimator.SetBool("onGround", onGroundState);
+        supportingColliders.Clear();
+        jumpSoundPending = false;
+        SetGrounded(true);
         marioAnimator.SetFloat("xSpeed", 0f);
         marioAnimator.ResetTrigger("onSkid");
         marioAnimator.SetTrigger("gameRestart");
@@ -200,6 +253,12 @@ public class PlayerMovement : MonoBehaviour
     // Invoked by an Animation Event at the start of mario-jump.
     public void PlayJumpSound()
     {
+        if (!jumpSoundPending)
+        {
+            return;
+        }
+
+        jumpSoundPending = false;
         marioAudio.PlayOneShot(marioAudio.clip);
     }
 
